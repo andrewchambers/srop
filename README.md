@@ -1,6 +1,6 @@
 # SROP
 
-Simple remote object protocol.
+Simple remote object protocol. Think smalltalk, erlang and 9p, not CORBA or SOAP.
 
 Explicit goals of the protocol are:
 
