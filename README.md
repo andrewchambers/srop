@@ -22,14 +22,6 @@ For example a message sent to the root object may trigger the allocation of a ne
 Communicating new ids to the client is an application detail,
 but would generally be communicated via an application specific response message.
 
-## Specification
-
-[here](./SPEC.md)
-
-## Implementations
-
-- Go - The reference implementation in this repository.
-
 ## Example
 
 ### Running the example
@@ -76,3 +68,10 @@ $ go run ./example/client/main.go
 
 ```
 
+## Specification
+
+[here](./SPEC.md)
+
+## Implementations
+
+- Go - The reference implementation in this repository.
