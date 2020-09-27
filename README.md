@@ -64,9 +64,9 @@ $ go run ./example/client/main.go
   greeterId := reply.(*srop.ObjectRef).Id
 
   // Sending hello to our newly created remote greeter results in a reply hello message.
-  reply, _ = client.Send(greeterId, &example.Hello{From: "client"}).(*example.Hello)
+  reply, _ = client.Send(greeterId, &example.Hello{From: "client"})
 
-  fmt.Printf("greetings from: %s" reply.From)
+  fmt.Printf("greetings from: %s" reply.(*example.Hello).From)
 
   client.Close()
 
