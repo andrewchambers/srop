@@ -14,7 +14,7 @@ different application specific messages. There is a small set of messages the re
 that other implementations are encouraged to reuse.
 
 Applications may define their own message types by simply selecting a unique 64 bit identifier for that message
-and defining the format. There is no need for complex protocol negotiation, objects simply respond to messages
+and defining the message format. There is no need for complex protocol negotiation, objects simply respond to messages
 they understand. If an object recieves a message it does not understand, it can reply with an 'UnknownMessage' response.
 
 The allocation of new objects and their corresponding id on the server is an application detail.
