@@ -9,6 +9,9 @@ Each message sent has a destination object id, a request id, a message type id, 
 
 A server may process and respond to messages out of order, but messages always arrive in the order they were sent.
 
+The server root object is free to allocate new objects and associate them with any object id in response to messages
+or otherwise. Once new object ids are assigned, messages may be sent to these objects by the client.
+
 Request ids are effectively never reused as they are incremented until overflow.
 
 ## Wire format
@@ -33,8 +36,8 @@ necessary.
 
 ### Type 0xd782cf4b395eca05 (Object ref)
 
-It is common to request the id of an object, this message can
-be used in a reply to signal to the client the id of an object.
+It is common to request the creation of a new object, this message can
+be used in a reply to signal to the client the id of the newly created object.
 
 This message is frequently used when a new object is created as the result of a message.
 
@@ -70,8 +73,8 @@ type is shared across many applications, make a pull request to this repository 
 
 ## Design notes
 
-- Version negotiation is not needed, objects are self describing.
-- Mixed encoding schemes is fine, each type id also describes the encoding.
+- Version negotiation is not needed, messages are self describing.
+- Mixed encoding schemes is no problem, each type id also describes the encoding.
 - Once a connection is assigned an object id, that is the [capability](https://en.wikipedia.org/wiki/Capability-based_security)
   to send it messages. This is the basis of capability based security in SROP servers.
 - The protocol uses at least 24 bytes per message, so is not particularly efficient for many small messages. This sacrifice
